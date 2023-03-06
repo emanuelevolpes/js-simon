@@ -11,14 +11,18 @@ Functions
 **********
 */
 
-  function generateRandomNumberArray (HowMany, num, array) {
+function generateRandomNumberArray(HowMany, num, array) {
     array.length = 0;
-    while(HowMany > array.length) {
+    while (HowMany > array.length) {
         let number = Math.floor(Math.random() * num);
         if (array.indexOf(number) === -1) {
             array.push(number);
         };
     };
+};
+
+function appendToElement(appendJSElement, elementHtml) {
+    elementHtml.append(appendJSElement);
 };
 
 /*
@@ -27,6 +31,9 @@ Main
 **********
 */
 let casualNumbers = [];
+const element = document.getElementById('numbers');
 
-generateRandomNumberArray (5, 100, casualNumbers);
+generateRandomNumberArray(5, 100, casualNumbers);
 console.log(casualNumbers);
+
+appendToElement(casualNumbers, element);
