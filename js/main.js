@@ -37,8 +37,26 @@ generateRandomNumberArray(5, 100, casualNumbers);
 
 appendToElement(casualNumbers, element);
 
-setTimeout(removeHtmlElement, 30000);
+setTimeout(removeHtmlElement, 3000);
 
 function removeHtmlElement() {
     element.remove();
+};
+
+setTimeout(showPrompt, 3100);
+
+function showPrompt() {
+    let i = 0;
+
+    while (i < 5) {
+        const numbers = Number(prompt('inserisci numero'));
+        console.log(numbers);
+            if (isNaN(numbers)) {
+                const numbers = Number(prompt('inserisci un numero'));
+                i++;
+                console.log(numbers);
+            } else {
+                i++;
+            };
+    };
 };
