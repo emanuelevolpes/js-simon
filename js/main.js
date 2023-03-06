@@ -34,6 +34,11 @@ let casualNumbers = [];
 const element = document.getElementById('numbers');
 
 generateRandomNumberArray(5, 100, casualNumbers);
-console.log(casualNumbers);
 
 appendToElement(casualNumbers, element);
+
+setTimeout(removeHtmlElement, 30000);
+
+function removeHtmlElement() {
+    element.remove();
+};
