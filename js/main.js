@@ -11,15 +11,16 @@ Functions
 **********
 */
 
-function generateRandomNumberArray(HowMany, num, array) {
-    array.length = 0;
-    while (HowMany > array.length) {
-        let number = Math.floor(Math.random() * num);
-        if (array.indexOf(number) === -1) {
-            array.push(number);
-        };
-    };
-};
+// function generateRandomNumberArray(HowMany, num, array) {
+//     array.length = 0;
+//     while (HowMany > array.length) {
+//         let number = Math.floor(Math.random() * num);
+//         if (array.indexOf(number) === -1) {
+//             array.push(number);
+//         };
+//     };
+//     return array;
+// };
 
 function appendToElement(appendJSElement, elementHtml) {
     elementHtml.append(appendJSElement);
@@ -30,10 +31,17 @@ function appendToElement(appendJSElement, elementHtml) {
 Main
 **********
 */
-let casualNumbers = [];
 const element = document.getElementById('numbers');
 
-generateRandomNumberArray(5, 100, casualNumbers);
+let casualNumbers = [];
+casualNumbers.length = 0;
+    while (5 > casualNumbers.length) {
+        let number = Math.floor(Math.random() * 100);
+        if (casualNumbers.indexOf(number) === -1) {
+            casualNumbers.push(number);
+        };
+    };
+    console.log(casualNumbers);
 
 appendToElement(casualNumbers, element);
 
@@ -46,17 +54,31 @@ function removeHtmlElement() {
 setTimeout(showPrompt, 3100);
 
 function showPrompt() {
+    let userNumbers = [];
+    let guessesNumbers = [];
     let i = 0;
 
     while (i < 5) {
         const numbers = Number(prompt('inserisci numero'));
         console.log(numbers);
             if (isNaN(numbers)) {
+                i--;
                 const numbers = Number(prompt('inserisci un numero'));
+                userNumbers.push(numbers);
                 i++;
                 console.log(numbers);
             } else {
                 i++;
-            };
+            };   
+        userNumbers.push(numbers);
+        console.log(userNumbers);
     };
+
+    for (let i = 0; i < userNumbers.length; i++) {
+        if (casualNumbers.includes(userNumbers[i])) {
+            guessesNumbers.push(userNumbers[i]);
+        };
+    };    
+
+    console.log('hai indovinato ' + guessesNumbers.length + ' numeri: ' + guessesNumbers);
 };
