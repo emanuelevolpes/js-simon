@@ -11,47 +11,24 @@ Functions
 **********
 */
 
-// function generateRandomNumberArray(HowMany, num, array) {
-//     array.length = 0;
-//     while (HowMany > array.length) {
-//         let number = Math.floor(Math.random() * num);
-//         if (array.indexOf(number) === -1) {
-//             array.push(number);
-//         };
-//     };
-//     return array;
-// };
+function generateRandomNumberArray(HowMany, num, array) {
+    array.length = 0;
+    while (HowMany > array.length) {
+        let number = Math.floor(Math.random() * num);
+        if (array.indexOf(number) === -1) {
+            array.push(number);
+        };
+    };
+    return array;
+};
 
 function appendToElement(appendJSElement, elementHtml) {
     elementHtml.append(appendJSElement);
 };
 
-/*
-**********
-Main
-**********
-*/
-const element = document.getElementById('numbers');
-
-let casualNumbers = [];
-casualNumbers.length = 0;
-    while (5 > casualNumbers.length) {
-        let number = Math.floor(Math.random() * 100);
-        if (casualNumbers.indexOf(number) === -1) {
-            casualNumbers.push(number);
-        };
-    };
-    console.log(casualNumbers);
-
-appendToElement(casualNumbers, element);
-
-setTimeout(removeHtmlElement, 3000);
-
 function removeHtmlElement() {
     element.remove();
 };
-
-setTimeout(showPrompt, 3100);
 
 function showPrompt() {
     let userNumbers = [];
@@ -60,15 +37,14 @@ function showPrompt() {
 
     while (i < 5) {
         const numbers = Number(prompt('inserisci numero'));
+        i++;
         console.log(numbers);
             if (isNaN(numbers)) {
                 i--;
                 const numbers = Number(prompt('inserisci un numero'));
                 userNumbers.push(numbers);
                 i++;
-                console.log(numbers);
-            } else {
-                i++;
+                console.log(numbers);   
             };   
         userNumbers.push(numbers);
         console.log(userNumbers);
@@ -80,5 +56,23 @@ function showPrompt() {
         };
     };    
 
-    console.log('hai indovinato ' + guessesNumbers.length + ' numeri: ' + guessesNumbers);
+    alert('hai indovinato ' + guessesNumbers.length + ' numeri: ' + guessesNumbers);
 };
+
+/*
+**********
+Main
+**********
+*/
+
+const element = document.getElementById('numbers');
+
+let casualNumbers = [];
+
+generateRandomNumberArray(5, 100, casualNumbers);
+
+appendToElement(casualNumbers, element);
+
+setTimeout(removeHtmlElement, 3000);
+
+setTimeout(showPrompt, 3100);
