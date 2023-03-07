@@ -34,24 +34,19 @@ function showPrompt() {
     let userNumbers = [];
     let guessesNumbers = [];
     let i = 0;
+    let numbers = Number(prompt('Inserisci numero'));
 
     while (i < 5) {
-        const numbers = Number(prompt('Inserisci numero'));
-        i++;
-        console.log(numbers);
             if (isNaN(numbers)) {
-                i--;
-                const numbers = Number(prompt('Attento: hai inserito una stringa, inserisci un numero!'));
+                numbers = Number(prompt('Attento: hai inserito una stringa, inserisci un numero!'));
+            } else {
                 userNumbers.push(numbers);
                 i++;
-                console.log(numbers);   
-            };   
-        userNumbers.push(numbers);
-        console.log(userNumbers);
+            };
     };
 
     for (let i = 0; i < userNumbers.length; i++) {
-        if (casualNumbers.includes(userNumbers[i])) {
+        if (casualNumbers.includes(userNumbers[i]) && !userNumbers.includes(numbers)) {
             guessesNumbers.push(userNumbers[i]);
         };
     };    
@@ -61,8 +56,6 @@ function showPrompt() {
     } else {
         document.getElementById('guesses-numbers').innerHTML = 'Hai indovinato ' + guessesNumbers.length + ' numeri, ritenta!';
     };
-
-    // alert('Hai indovinato ' + guessesNumbers.length + ' numeri: ' + guessesNumbers);
 };
 
 /*
