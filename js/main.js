@@ -36,12 +36,12 @@ function showPrompt() {
     let i = 0;
 
     while (i < 5) {
-        const numbers = Number(prompt('inserisci numero'));
+        const numbers = Number(prompt('Inserisci numero'));
         i++;
         console.log(numbers);
             if (isNaN(numbers)) {
                 i--;
-                const numbers = Number(prompt('inserisci un numero'));
+                const numbers = Number(prompt('Attento: hai inserito una stringa, inserisci un numero!'));
                 userNumbers.push(numbers);
                 i++;
                 console.log(numbers);   
@@ -56,7 +56,8 @@ function showPrompt() {
         };
     };    
 
-    alert('hai indovinato ' + guessesNumbers.length + ' numeri: ' + guessesNumbers);
+    // alert('Hai indovinato ' + guessesNumbers.length + ' numeri: ' + guessesNumbers);
+    document.getElementById('guesses-numbers').innerHTML = 'Hai indovinato ' + guessesNumbers.length + ' numeri: ' + guessesNumbers;
 };
 
 /*
