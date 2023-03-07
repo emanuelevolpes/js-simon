@@ -56,8 +56,13 @@ function showPrompt() {
         };
     };    
 
+    if (guessesNumbers.length > 0) {
+        document.getElementById('guesses-numbers').innerHTML = 'Hai indovinato ' + guessesNumbers.length + ' numeri: ' + guessesNumbers;
+    } else {
+        document.getElementById('guesses-numbers').innerHTML = 'Hai indovinato ' + guessesNumbers.length + ' numeri, ritenta!';
+    };
+
     // alert('Hai indovinato ' + guessesNumbers.length + ' numeri: ' + guessesNumbers);
-    document.getElementById('guesses-numbers').innerHTML = 'Hai indovinato ' + guessesNumbers.length + ' numeri: ' + guessesNumbers;
 };
 
 /*
